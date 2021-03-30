@@ -5,7 +5,9 @@
  * 
  * 
  **/
-require('dotenv').config(); // Heroku error
+if(process.env.NODE_ENV === 'development') {
+  require('dotenv').config(); // Heroku error
+}
 
 const students = require('./api/students/students.route');
 const mongoose = require('./service/mongo');
