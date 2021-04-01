@@ -13,14 +13,16 @@ const studentSchema = new Schema({
     type: String,
     required: true,
   },
-  lastname: {
+  lastname: String,
+  email: {
     type: String,
     required: true,
   },
-  age: {
-    type: Number,
-    required: true,
-  }
+  password: {
+    type: String,
+    require: true,
+  },
+  age: Number,
 });
 
 /*
@@ -51,6 +53,9 @@ studentSchema.pre('save', function() {
   this.lastname = this.lastname.toUpperCase();
 });
 
+studentSchema.pre('save', function() {
+  this.password = this.password;
+})
 
 /*
  *

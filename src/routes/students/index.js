@@ -1,4 +1,4 @@
-const { model } = require('./students.model');
+const { model } = require('./model');
 const router = require('express').Router();
 
 /*
@@ -11,7 +11,7 @@ const router = require('express').Router();
 router.get('', async (req, res) => {
   const students = await model.find();
 
-  res.json(students);
+  res.render('students', { students });
 });
 
 /*
